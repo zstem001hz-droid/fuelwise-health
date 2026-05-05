@@ -1,4 +1,4 @@
-# FuelWise Health
+# FuelWise Health 🏃🏽‍♀️🏃‍♂️
 
 A React + TypeScript frontend for tracking fitness and nutrition using the Strava API v3.
 
