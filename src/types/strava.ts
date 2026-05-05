@@ -1,4 +1,4 @@
-// Types for loac calculator utilities
+// Types for load calculator utilities
 export type Activity = {
   id: number;
   date: string;
