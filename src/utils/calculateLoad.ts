@@ -1,5 +1,8 @@
 // Import types from types folder
 import { Activity, WeeklySummary, RiskLevel } from "../types/strava";
+import '../App.tsx'
+
+console.log("Am I here?")
 
 // Helper function to determine intensity score based on pace 
 // Faster pace = higher intensity
