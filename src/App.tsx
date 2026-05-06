@@ -1,4 +1,5 @@
-// import utilities for testing
+import { useEffect, useState } from "react";
+
 import {
     calculateWeeklyLoad,
     generateFuelWiseResult,
@@ -6,8 +7,6 @@ import {
 
 import { Activity } from "./types/strava";
 
-
-// Mock Data for testing. purposes
 const mockActivities: Activity[] = [
     {
         id: 1,
@@ -16,7 +15,7 @@ const mockActivities: Activity[] = [
         activityType: "Run",
         distanceMiles: 3.1,
         durationMinutes: 30,
-        averagePace: 9.5
+        averagePace: 9.5,
     },
     {
         id: 2,
@@ -25,7 +24,7 @@ const mockActivities: Activity[] = [
         activityType: "Run",
         distanceMiles: 2.5,
         durationMinutes: 25,
-        averagePace: 10.5
+        averagePace: 10.5,
     },
     {
         id: 3,
@@ -34,25 +33,25 @@ const mockActivities: Activity[] = [
         activityType: "Run",
         distanceMiles: 5.0,
         durationMinutes: 50,
-        averagePace: 9.8
-    }
+        averagePace: 9.8,
+    },
 ];
 
-import { useEffect } from "react";
+function App() {
+    const [result, setResult] = useState<ReturnType<
+        typeof generateFuelWiseResult
+    > | null>(null);
 
-
-App(){
-
-    // Run functions on load
     useEffect(() => {
         const weekly = calculateWeeklyLoad(mockActivities);
-        const result = generateFuelWiseResult(weekly);
+        const fuelWiseResult = generateFuelWiseResult(weekly);
 
         console.log("Weekly Data:", weekly);
-        console.log("FuelWise Result:", result);
+        console.log("FuelWise Result:", fuelWiseResult);
+
+        setResult(fuelWiseResult);
     }, []);
 
-    // Display
     return (
         <div>
             <h1>FuelWise Test</h1>
@@ -61,4 +60,4 @@ App(){
     );
 }
 
-export default function App();
+export default App;
