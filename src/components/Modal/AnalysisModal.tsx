@@ -1,4 +1,11 @@
-export default function AnalysisModal() {
+// type definitions for the AnalysisModal component
+// this type is responsible for defining the props that the AnalysisModal component will receive. In this case, it expects a single prop called onClose, which is a function that takes no arguments and returns void. This function will be used to close the modal when the user clicks the cancel button or submits the form.
+type AnalysisModalProps = {
+  onClose: () => void;
+};
+
+export default function AnalysisModal({ onClose }: AnalysisModalProps) {
+ 
   return (
     // Modal overlay
     <div className="flex items-start justify-center bg-slate-700/50 fixed inset-0 backdrop-blur-sm px-6 overflow-y-auto py-10">
@@ -113,6 +120,7 @@ export default function AnalysisModal() {
 
             <button
               type="button"
+              onClick={onClose}
               className="border border-gray-300 bg-white text-gray-700 rounded-md py-3 font-medium transition hover:bg-gray-100"
             >
               Cancel
