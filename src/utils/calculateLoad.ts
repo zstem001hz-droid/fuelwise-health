@@ -1,6 +1,6 @@
 // Import types from types folder
-import { Activity, WeeklySummary, RiskLevel } from "../types/strava";
-import '../App.tsx'
+import { Activity, WeeklySummary, RiskLevel, FuelWiseResult} from "../types/strava";
+
 
 console.log("Am I here?")
 
