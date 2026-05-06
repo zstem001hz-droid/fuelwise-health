@@ -1,4 +1,14 @@
+import { useState } from "react";
+import AnalysisModal from "../components/Modal/AnalysisModal";
+
 export default function HomePage() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+
   return (
     <section className="relative w-full min-h-[calc(100vh-64px)] overflow-hidden">
 
