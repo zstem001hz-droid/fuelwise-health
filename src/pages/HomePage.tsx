@@ -1,7 +1,17 @@
+import { useState } from "react";
+import AnalysisModal from "../components/Modal/AnalysisModal";
+
 export default function HomePage() {
+  // State to control the visibility of the AnalysisModal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Function to open the modal when the "Get Analysis" button is clicked
+  const openModal = () => {
+    setIsModalOpen(true);
+    console.log("Model Opened: debugging only");
+  };
+
   return (
     <section className="relative w-full min-h-[calc(100vh-64px)] overflow-hidden">
-
       {/* Background Image */}
       <div className="absolute inset-0">
         {/* image going here */}
@@ -17,9 +27,7 @@ export default function HomePage() {
 
       {/* Hero Content */}
       <div className="relative z-10 flex items-center min-h-[calc(100vh-64px)] px-6">
-
         <div className="max-w-2xl flex flex-col gap-6 text-white">
-
           <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
             Train smarter.
             <br />
@@ -32,20 +40,22 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col md:flex-row gap-4">
-
-            <button className="px-6 py-3 rounded-md bg-white text-black font-medium">
+            <button
+              onClick={openModal}
+              className="px-6 py-3 rounded-md bg-white text-black font-medium"
+            >
               Get Analysis →
             </button>
 
             <button className="px-6 py-3 rounded-md border border-white text-white">
               Learn More
             </button>
-
           </div>
-
         </div>
-
       </div>
+
+    {/* // Render the AnalysisModal component when isModalOpen is true, passing the onClose function as a prop to allow the modal to be closed when the user clicks the cancel button or submits the form. */}
+      {isModalOpen && <AnalysisModal onClose={() => setIsModalOpen(false)} />}
     </section>
   );
 }
