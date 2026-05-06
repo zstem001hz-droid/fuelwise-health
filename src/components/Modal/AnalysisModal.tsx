@@ -18,8 +18,8 @@ export default function AnalysisModal({ onClose }: AnalysisModalProps) {
             </h2>
 
             <p className="text-sm leading-relaxed text-gray-600">
-              Sync your Strava activity data to receive personalized training
-              load insights, recovery analysis, and injury risk monitoring.
+              Import your activity data automatically to unlock personalized
+              workload analysis, recovery monitoring, and injury risk insights.
             </p>
           </div>
 
@@ -67,6 +67,11 @@ export default function AnalysisModal({ onClose }: AnalysisModalProps) {
               Cancel
             </button>
           </div>
+          {/* Privacy copy -----------------------------------------------------------------------------*/}
+          <p className="mt-6 text-xs leading-relaxed text-gray-500">
+            Your activity data stays private and secure. FuelWise only accesses
+            workout activity and training metrics needed for analysis.
+          </p>
         </div>
       </div>
     </div>
