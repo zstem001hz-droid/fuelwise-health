@@ -1,11 +1,11 @@
 export default function AnalysisModal() {
   return (
     // Modal overlay
-    <div className="flex items-center justify-center bg-slate-700/50 fixed inset-0 backdrop-blur-sm px-6">
-      {/* Modal content */}
+    <div className="flex items-start justify-center bg-slate-700/50 fixed inset-0 backdrop-blur-sm px-6 overflow-y-auto py-10">
+      {/* Modal content------------------------------------------------------------------ */}
       <div>
         <form className="flex flex-col bg-white shadow-xl rounded-lg p-6 gap-7 w-full max-w-md">
-          {/* Header copy for the analysis form */}
+          {/* Header copy for the analysis form ---------------------------------------*/}
           <div className="flex flex-col gap-2 mb-8">
             <h2 className="text-2xl font-semibold">Analyze Your Training</h2>
             <p className="text-sm text-gray-600">
@@ -14,7 +14,7 @@ export default function AnalysisModal() {
             </p>
           </div>
 
-          {/* Core training inputs */}
+          {/* Core training inputs-------------------------------------------------- */}
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-2">
               <label htmlFor="age" className="text-sm font-medium">
@@ -29,6 +29,7 @@ export default function AnalysisModal() {
               />
             </div>
 
+            {/* WEEKLY MILEAGE --------------------------------------------------- */}
             <div className="flex flex-col gap-2">
               <label htmlFor="weekly-mileage" className="text-sm font-medium">
                 Weekly Mileage
@@ -42,6 +43,7 @@ export default function AnalysisModal() {
               />
             </div>
 
+            {/* TRAINING INTENSITY --------------------------------------------------- */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="training-intensity"
@@ -66,6 +68,7 @@ export default function AnalysisModal() {
               </select>
             </div>
 
+            {/* RECOVERY LEVEL --------------------------------------------------- */}
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <label
@@ -99,12 +102,22 @@ export default function AnalysisModal() {
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="mt-4 bg-black text-white rounded-md py-3 font-medium transition hover:bg-gray-800"
-          >
-            Analyze
-          </button>
+          {/* Action buttons --------------------------------------------------- */}
+          <div className="flex flex-col gap-3">
+            <button
+              type="submit"
+              className="mt-4 bg-gray-700 text-white rounded-md py-3 font-medium transition hover:bg-gray-900"
+            >
+              Analyze
+            </button>
+
+            <button
+              type="button"
+              className="border border-gray-300 bg-white text-gray-700 rounded-md py-3 font-medium transition hover:bg-gray-100"
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     </div>
