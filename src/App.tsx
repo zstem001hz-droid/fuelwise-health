@@ -1,3 +1,4 @@
+import AnalysisModal from "./components/Modal/AnalysisModal";
 import Navbar from "./components/Navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
 
@@ -14,6 +15,7 @@ export default function App() {
     <>
       <main>
         <Navbar />
+        <AnalysisModal />
 
         <Routes>
           <Route path="/" element={<HomePage />} />
