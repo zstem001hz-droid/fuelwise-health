@@ -15,7 +15,7 @@ export default function App() {
     <>
       <main>
         <Navbar />
-        <AnalysisModal />
+        <AnalysisModal onClose={() => console.log("Modal closed")} />
 
         <Routes>
           <Route path="/" element={<HomePage />} />
