@@ -4,11 +4,11 @@ export default function AnalysisModal() {
     <div className="flex items-center justify-center bg-slate-700/50 fixed inset-0 backdrop-blur-sm px-6">
       {/* Modal content */}
       <div>
-        <form className="flex flex-col bg-white shadow-xl rounded-lg p-6 gap-7 md:w-full max-w-sm md:max-w-md">
+        <form className="flex flex-col bg-white shadow-xl rounded-lg p-6 gap-7 w-full max-w-md">
           {/* Header copy for the analysis form */}
           <div className="flex flex-col gap-2 mb-8">
-            <h2>Analyze Your Training</h2>
-            <p>
+            <h2 className="text-2xl font-semibold">Analyze Your Training</h2>
+            <p className="text-sm text-gray-600">
               Get personalized insights based on your training load, recovery,
               and workout intensity.
             </p>
@@ -17,9 +17,12 @@ export default function AnalysisModal() {
           {/* Core training inputs */}
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-2">
-              <label htmlFor="age">Age</label>
+              <label htmlFor="age" className="text-sm font-medium">
+                Age
+              </label>
               <input
                 type="number"
+                placeholder="e.g. 26"
                 id="age"
                 name="age"
                 className="border border-gray-300 rounded-md px-4 py-3 bg-white text-sm outline-none transition focus:ring-2 focus:ring-black/20 focus:border-black"
@@ -27,13 +30,35 @@ export default function AnalysisModal() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="weekly-mileage">Weekly Mileage</label>
-              <input type="number" id="weekly-training" name="weekly-mileage" className="border border-gray-300 rounded-md px-4 py-3 bg-white text-sm outline-none transition focus:ring-2 focus:ring-black/20 focus:border-black"/>
+              <label htmlFor="weekly-mileage" className="text-sm font-medium">
+                Weekly Mileage
+              </label>
+              <input
+                type="number"
+                placeholder="e.g. 30 miles"
+                id="weekly-mileage"
+                name="weekly-mileage"
+                className="border border-gray-300 rounded-md px-4 py-3 bg-white text-sm outline-none transition focus:ring-2 focus:ring-black/20 focus:border-black"
+              />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="training-intensity">Training Intensity:</label>
-              <select id="training-intensity" name="training-intensity" className="border border-gray-300 rounded-md px-4 py-3 bg-white text-sm outline-none transition focus:ring-2 focus:ring-black/20 focus:border-black">
+              <label
+                htmlFor="training-intensity"
+                className="text-sm font-medium"
+              >
+                Training Intensity:
+              </label>
+
+              <p className="text-sm text-gray-500">
+                Estimate how demanding your recent workouts have been overall.
+              </p>
+
+              <select
+                id="training-intensity"
+                name="training-intensity"
+                className="border border-gray-300 rounded-md px-4 py-3 bg-white text-sm outline-none transition focus:ring-2 focus:ring-black/20 focus:border-black"
+              >
                 <option value="">Select intensity</option>
                 <option value="low">Low</option>
                 <option value="moderate">Moderate</option>
@@ -43,7 +68,12 @@ export default function AnalysisModal() {
 
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
-                <label htmlFor="recovery-slider">Recovery Level</label>
+                <label
+                  htmlFor="recovery-slider"
+                  className="text-sm font-medium"
+                >
+                  Recovery Level
+                </label>
 
                 <span className="text-sm font-medium">5/10</span>
               </div>
@@ -59,7 +89,7 @@ export default function AnalysisModal() {
                 name="recovery-slider"
                 min="1"
                 max="10"
-                className="border border-gray-300 rounded-md px-4 py-3 bg-white text-sm outline-none transition focus:ring-2 focus:ring-black/20 focus:border-black"
+                className="w-full accent-black"
               />
 
               <div className="flex gap-2 justify-between text-xs text-gray-400">
@@ -69,7 +99,10 @@ export default function AnalysisModal() {
             </div>
           </div>
 
-          <button type="submit" role="button" className="mt-4">
+          <button
+            type="submit"
+            className="mt-4 bg-black text-white rounded-md py-3 font-medium transition hover:bg-gray-800"
+          >
             Analyze
           </button>
         </form>
