@@ -8,7 +8,7 @@ export default function AnalysisModal({ onClose }: AnalysisModalProps) {
  
   return (
     // Modal overlay
-    <div className="flex items-start justify-center bg-slate-700/50 fixed inset-0 backdrop-blur-sm px-6 overflow-y-auto py-10">
+    <div className="flex items-start z-50 justify-center bg-slate-700/50 fixed inset-0 backdrop-blur-sm px-6 overflow-y-auto py-10">
       {/* Modal content------------------------------------------------------------------ */}
       <div>
         <form className="flex flex-col bg-white shadow-xl rounded-lg p-6 gap-7 w-full max-w-md">
