@@ -1,7 +1,10 @@
+import { useAuth } from "../context/AuthContext";
+
 export default function HomePage() {
+  const { login } = useAuth();
+
   return (
     <section className="relative w-full min-h-[calc(100vh-64px)] overflow-hidden">
-
       {/* Background Image */}
       <div className="absolute inset-0">
         {/* image going here */}
@@ -17,9 +20,7 @@ export default function HomePage() {
 
       {/* Hero Content */}
       <div className="relative z-10 flex items-center min-h-[calc(100vh-64px)] px-6">
-
         <div className="max-w-2xl flex flex-col gap-6 text-white">
-
           <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
             Train smarter.
             <br />
@@ -32,19 +33,18 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col md:flex-row gap-4">
-
-            <button className="px-6 py-3 rounded-md bg-white text-black font-medium">
+            <button
+              onClick={login}
+              className="px-6 py-3 rounded-md bg-white text-black font-medium"
+            >
               Get Analysis →
             </button>
 
             <button className="px-6 py-3 rounded-md border border-white text-white">
               Learn More
             </button>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );
