@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import AnalysisModal from "../components/Modal/AnalysisModal";
 
 // Reusable component for section intros with consistent styling
@@ -243,6 +244,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Footer />
 
       {/* Render modal above all page layers when requested. */}
       {isModalOpen && <AnalysisModal onClose={() => setIsModalOpen(false)} />}
