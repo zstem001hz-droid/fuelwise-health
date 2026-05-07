@@ -1,11 +1,14 @@
 
 import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Dashboard/Sidebar";
 import HomePage from "./pages/HomePage";
 import { Routes, Route } from "react-router-dom";
 
 
 function DashboardPage() {
-  return <div>Dashboard Page</div>;
+  return (
+    <Sidebar />
+  );
 }
 
 export default function App() {
