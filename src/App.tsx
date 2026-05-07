@@ -4,9 +4,7 @@ import ExchangeTokenPage from "./pages/ExchangeTokenPage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { Routes, Route } from "react-router-dom";
 
-// function DashboardPage() {
-//   return <div>Dashboard Page</div>;
-// }
+
 
 export default function App() {
   return (

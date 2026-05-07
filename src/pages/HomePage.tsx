@@ -73,7 +73,7 @@ export default function HomePage() {
         <Navbar />
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero.jpg"
+            src="/images/newHero.webp"
             alt="Runner training outdoors"
             className="h-full w-full object-cover"
           />
@@ -106,7 +106,7 @@ export default function HomePage() {
       </section>
 
       {/* Dashboard Insights Section */}
-      <section className="bg-stone-50 py-20 lg:py-28">
+      <section className="bg-[#F8F6F1] py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -115,15 +115,28 @@ export default function HomePage() {
                 heading="Understand your training patterns before fatigue becomes injury."
                 description="FuelWise combines Strava activity syncing with workload and recovery analysis so endurance athletes can make clearer, data-informed training decisions."
               />
-              <ul className="mt-8 space-y-3 text-sm text-stone-700">
-                <li>Track load progression week over week</li>
-                <li>Catch recovery imbalance early</li>
-                <li>Train with actionable risk signals</li>
+
+              <ul className="mt-8 flex flex-col gap-3 text-sm text-stone-700 items-center md:items-start">
+                <li className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <span>Track load progression week over week</span>
+                </li>
+
+                <li className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <span>Catch recovery imbalance early</span>
+                </li>
+
+                <li className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <span>Train with actionable risk signals</span>
+                </li>
               </ul>
             </div>
-            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)]">
+
+            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-[#FCFBF8] p-3 shadow-[0_10px_30px_-18px_rgba(28,25,23,0.12)]">
               <img
-                src="/images/RealisticDataDashBoard.png"
+                src="/images/RealisticDataDashBoard.webp"
                 alt="FuelWise dashboard preview"
                 className="h-full w-full rounded-xl object-cover"
               />
@@ -133,7 +146,7 @@ export default function HomePage() {
       </section>
 
       {/* Feature Section */}
-      <section className="bg-stone-50 py-20 lg:py-28">
+      <section className="bg-[#FCFBF8] py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="flex flex-col items-center text-center mb-4">
             <SectionIntro
@@ -146,7 +159,7 @@ export default function HomePage() {
             {featureCards.map((feature) => (
               <article
                 key={feature.id}
-                className="rounded-2xl border border-stone-200/70 bg-white p-7 shadow-sm"
+                className="rounded-2xl border border-stone-200/70 bg-[#FCFBF8] p-7 shadow-[0_10px_30px_-18px_rgba(28,25,23,0.12)]"
               >
                 <h3 className="text-xl font-semibold text-stone-900">
                   {feature.title}
@@ -161,12 +174,12 @@ export default function HomePage() {
       </section>
 
       {/* Recovery Intelligence Section */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-[#F8F6F1] py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.22)]">
+            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-[#FCFBF8] p-3 shadow-[0_10px_30px_-18px_rgba(28,25,23,0.12)]">
               <img
-                src="/images/StretcedGoalsDataDashBoard.png"
+                src="/images/StretcedGoalsDataDashBoard.webp"
                 alt="FuelWise recovery intelligence dashboard preview"
                 className="h-full w-full rounded-xl object-cover"
               />
@@ -177,17 +190,29 @@ export default function HomePage() {
                 heading="Train with better awareness of fatigue and recovery."
                 description="FuelWise helps runners recognize workload imbalance early through recovery analysis, nutrition guidance, and personalized training recommendations."
               />
-              <ul className="mt-8 space-y-3 text-sm text-stone-700">
-                <li>Monitor recovery trends alongside training load</li>
-                <li>Receive personalized recovery recommendations</li>
-                <li>Build more sustainable training habits</li>
+
+              <ul className="mt-8 flex flex-col gap-3 text-sm text-stone-700 items-center md:items-start">
+                <li className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <span>Monitor recovery trends alongside training load</span>
+                </li>
+
+                <li className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <span>Receive personalized recovery recommendations</span>
+                </li>
+
+                <li className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <span>Build more sustainable training habits</span>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* CTA Section */}
       <section className="bg-[#0c1f12] py-24 lg:py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-300/80">
