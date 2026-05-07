@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export default function Sidebar() {
   // Navigation items for the sidebar
   //  Can replace these with actual links or icons as needed
@@ -8,7 +10,7 @@ export default function Sidebar() {
     { label: "Recovery", isActive: false, placement: "top" },
     { label: "Insights", isActive: false, placement: "top" },
     { label: "History", isActive: false, placement: "top" },
-    { label: "Home", isActive: false, placement: "bottom" },
+    { label: "Home", isActive: false, placement: "bottom", to: "/", end: true },
   ];
 
   const primaryNavItems = navItems.filter((item) => item.placement === "top");
@@ -60,13 +62,23 @@ export default function Sidebar() {
           <ul className="flex flex-col gap-2">
             {bottomNavItems.map((item) => (
             <li key={item.label}>
-              <button
-                type="button"
-                className={getItemClassName(item.isActive)}
-                aria-current={item.isActive ? "page" : undefined}
-              >
-                {item.label}
-              </button>
+              {item.to ? (
+                <NavLink
+                  to={item.to}
+                  end={Boolean(item.end)}
+                  className={({ isActive }) => getItemClassName(isActive)}
+                >
+                  {item.label}
+                </NavLink>
+              ) : (
+                <button
+                  type="button"
+                  className={getItemClassName(item.isActive)}
+                  aria-current={item.isActive ? "page" : undefined}
+                >
+                  {item.label}
+                </button>
+              )}
             </li>
             ))}
           </ul>
