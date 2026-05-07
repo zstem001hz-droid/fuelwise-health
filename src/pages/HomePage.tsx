@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "../components/Navbar/Navbar";
 import AnalysisModal from "../components/Modal/AnalysisModal";
 
 export default function HomePage() {
@@ -11,22 +12,26 @@ export default function HomePage() {
   };
 
   return (
-    <section className="relative w-full min-h-[calc(100vh-64px)] overflow-hidden">
+    <>
+    
+
+    <section className="relative w-full min-h-screen overflow-hidden">
+      <Navbar />
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         {/* image going here */}
         <img
-        //   src="/hero-image.jpg"
-        //   alt="Runner training outdoors"
-        //   className="w-full h-full object-cover"
+        src="/images/hero.jpg"
+        alt="Runner training outdors"
+          className="w-full h-full object-cover"
         />
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/45 z-10 pt-24 md:pt-32" />
 
       {/* Hero Content */}
-      <div className="relative z-10 flex items-center min-h-[calc(100vh-64px)] px-6">
+      <div className="relative z-20 flex items-center min-h-screen px-6">
         <div className="max-w-2xl flex flex-col gap-6 text-white">
           <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
             Train smarter.
@@ -57,5 +62,6 @@ export default function HomePage() {
     {/* // Render the AnalysisModal component when isModalOpen is true, passing the onClose function as a prop to allow the modal to be closed when the user clicks the cancel button or submits the form. */}
       {isModalOpen && <AnalysisModal onClose={() => setIsModalOpen(false)} />}
     </section>
+    </>
   );
 }
