@@ -13,55 +13,87 @@ export default function HomePage() {
 
   return (
     <>
-    
+      <section className="relative w-full min-h-screen overflow-hidden">
+        <Navbar />
 
-    <section className="relative w-full min-h-screen overflow-hidden">
-      <Navbar />
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        {/* image going here */}
-        <img
-        src="/images/hero.jpg"
-        alt="Runner training outdors"
-          className="w-full h-full object-cover"
-        />
-      </div>
+        {/* Hero background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/hero.jpg"
+            alt="Runner training outdoors"
+            className="h-full w-full object-cover"
+          />
+        </div>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/45 z-10 pt-24 md:pt-32" />
+        {/* Cinematic overlay for text readability */}
+        <div className="absolute inset-0 z-10 bg-black/45" />
 
-      {/* Hero Content */}
-      <div className="relative z-20 flex items-center min-h-screen px-6">
-        <div className="max-w-2xl flex flex-col gap-6 text-white">
-          <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
-            Train smarter.
-            <br />
-            Reduce injury risk.
-          </h1>
+        {/* Hero content */}
+        <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-7xl items-center px-6">
+          <div className="max-w-2xl space-y-6 text-white">
+            <h1 className="text-4xl font-semibold leading-tight md:text-6xl">
+              Train smarter.
+              <br />
+              Reduce injury risk.
+            </h1>
 
-          <p className="text-base md:text-lg text-gray-200">
-            Analyze your training load and recovery to get personalized insights
-            and prevent injuries before they happen.
-          </p>
+            <p className="text-base text-gray-200 md:text-lg">
+              Analyze your training load and recovery to get personalized
+              insights and prevent injuries before they happen.
+            </p>
 
-          <div className="flex flex-col md:flex-row gap-4">
-            <button
-              onClick={openModal}
-              className="px-6 py-3 rounded-md bg-white text-black font-medium"
-            >
-              Get Analysis →
-            </button>
+            <div className="flex flex-col gap-4 md:flex-row">
+              <button
+                onClick={openModal}
+                className="rounded-md bg-white px-6 py-3 font-medium text-black"
+              >
+                Get Analysis →
+              </button>
 
-            <button className="px-6 py-3 rounded-md border border-white text-white">
-              Learn More
-            </button>
+              <button className="rounded-md border border-white px-6 py-3 text-white">
+                Learn More
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-    {/* // Render the AnalysisModal component when isModalOpen is true, passing the onClose function as a prop to allow the modal to be closed when the user clicks the cancel button or submits the form. */}
+      <section className="bg-stone-50 py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <header className="lg:col-span-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
+                Performance Insights
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight text-stone-900 lg:text-5xl">
+                Understand your training patterns before fatigue becomes injury.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-stone-700">
+                FuelWise combines Strava activity syncing with workload and
+                recovery analysis so endurance athletes can make clearer,
+                data-informed training decisions.
+              </p>
+
+              <ul className="mt-8 space-y-3 text-sm text-stone-700">
+                <li>Track load progression week over week</li>
+                <li>Catch recovery imbalance early</li>
+                <li>Train with actionable risk signals</li>
+              </ul>
+            </header>
+
+            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)]">
+              <img
+                src="/images/RealisticDataDashBoard.png"
+                alt="FuelWise dashboard preview"
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* Render modal above all page layers when requested. */}
       {isModalOpen && <AnalysisModal onClose={() => setIsModalOpen(false)} />}
-    </section>
     </>
   );
 }
