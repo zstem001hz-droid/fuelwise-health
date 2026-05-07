@@ -10,12 +10,16 @@ type SectionIntroProps = {
   description: string;
 };
 
+// This component takes in three props: eyebrow, heading, and description. The eyebrow is a small piece of text that appears above the main heading, often used to provide context or categorize the section. The heading is the main title of the section, and the description provides additional information about what the section is about. By using this component, we can ensure that all section intros have a consistent look and feel across the application.
+// its purpose is to provide a consistent layout and styling for the introductory text of different sections on the home page, making it easier to maintain a cohesive design throughout the application.
 function SectionIntro({ eyebrow, heading, description }: SectionIntroProps) {
   return(
     <header>
-      <p></p>
-      <h2></h2>
-      <p></p>
+      <p >{eyebrow}</p>
+
+      <h2 >{heading}</h2>
+
+      <p>{description}</p>
     </header>
   )
 }
