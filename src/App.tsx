@@ -1,8 +1,8 @@
-
-import DashboardPage from "./pages/DashboardPage";
 import HomePage from "./pages/HomePage";
+import DashboardPage from "./pages/DashboardPage";
+import ExchangeTokenPage from "./pages/ExchangeTokenPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { Routes, Route } from "react-router-dom";
-
 
 
 
@@ -10,13 +10,21 @@ export default function App() {
   return (
     <>
       <main>
-       
         <Routes>
+          {/* Public routes */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-        </Routes>
+          <Route path="/exchange_token" element={<ExchangeTokenPage />} />
 
-       
+          {/* Protected routes */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
       </main>
     </>
   );

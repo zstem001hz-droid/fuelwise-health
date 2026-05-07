@@ -1,5 +1,6 @@
 import Sidebar from "../components/Dashboard/Sidebar.tsx";
 import StatCard from "../components/Dashboard/StatCard.tsx";
+import { useAuth } from "../context/AuthContext";
 
 /**
  * Dashboard layout shell for FuelWise.
@@ -83,8 +84,8 @@ function getActivityFeedItems(): ActivityFeedItem[] {
     },
   ];
 }
-
 export default function DashboardPage() {
+  const { athlete } = useAuth();
   // Keep data preparation near the top so rendering remains simple.
   const statsData = getDashboardStats();
   const activityFeedItems = getActivityFeedItems();
@@ -98,7 +99,9 @@ export default function DashboardPage() {
       <div className="flex-1 overflow-y-auto bg-[#F8F6F1] px-8 py-10 lg:px-10 lg:py-10">
         {/* Header section */}
         <div className="mb-10">
-          <h1 className="text-4xl font-semibold tracking-tight text-stone-900">Welcome, User!</h1>
+          <h1 className="text-4xl font-semibold tracking-tight text-stone-900">
+            Welcome, {athlete?.firstname ?? "User"}! 👋
+          </h1>
           <p className="mt-2 text-sm text-stone-600">
             {/* hardcoded data for debugging, will replace*/}
             This week • May 1-7, 2026
