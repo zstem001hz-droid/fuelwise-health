@@ -11,7 +11,7 @@ export default function DashboardPage() {
       <div className="flex-1 overflow-y-auto bg-gray-50 p-8">
         {/* Header section */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Welcome, User!</h1>
           <p className="mt-1 text-sm text-gray-600">
             {/* hardcoded data for debugging, will replace*/}
             This week • May 1-7, 2026
@@ -19,7 +19,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Stats grid */}
-        <div className="">
+        <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {/* hardcoded data for debugging, will replace with dynamic data from backend later. */}
           <StatCard title="Weekly Mileage" value="28.4" subtitle="miles" />
           <StatCard title="Recovery Score" value="7.2" subtitle="out of 10" />
@@ -30,20 +30,22 @@ export default function DashboardPage() {
             subtitle="based on 7-day load"
           />
         </div>
+
         {/* Analytics section */}
-        <div>
-          <h2>Recent Activity</h2>
-          <div>
-            <p>Charts and trends coming soon</p>
+        <div className="mb-8">
+          <h2 className="mb-4 text-lg font-semibold text-gray-900">Recent Activity</h2>
+          <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm">
+            <p className="text-sm text-gray-500">Charts and trends coming soon</p>
           </div>
         </div>
+
         {/* Activity section */}
         <div>
-          <h2>
+          <h2 className="mb-4 text-lg font-semibold text-gray-900">
             Your Activities
           </h2>
-          <div>
-            <p>Activity feed coming soon</p>
+          <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm">
+            <p className="text-sm text-gray-500">Activity feed coming soon</p>
           </div>
         </div>
       </div>
