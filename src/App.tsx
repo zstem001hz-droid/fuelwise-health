@@ -1,4 +1,5 @@
-import Navbar from "./components/Navbar/Navbar";
+
+
 import HomePage from "./pages/HomePage";
 import DashboardPage from "./pages/DashboardPage";
 import ExchangeTokenPage from "./pages/ExchangeTokenPage";
@@ -14,6 +15,7 @@ export default function App() {
     <>
       <main>
         <Navbar />
+       
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<HomePage />} />
