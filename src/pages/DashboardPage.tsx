@@ -42,7 +42,7 @@ export default function DashboardPage() {
   const statsData = getDashboardStats();
 
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-screen">
       {/* Sidebar */}
       <Sidebar />
 
