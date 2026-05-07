@@ -1,5 +1,3 @@
-
-
 import HomePage from "./pages/HomePage";
 import DashboardPage from "./pages/DashboardPage";
 import ExchangeTokenPage from "./pages/ExchangeTokenPage";
@@ -14,8 +12,6 @@ export default function App() {
   return (
     <>
       <main>
-        <Navbar />
-       
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<HomePage />} />
