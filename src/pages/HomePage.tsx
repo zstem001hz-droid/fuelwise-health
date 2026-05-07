@@ -12,56 +12,52 @@ type SectionIntroProps = {
 
 // This type defines the structure of a feature card, which includes an id, title, and description. The id is a unique identifier for each feature card, while the title and description provide information about the specific feature being highlighted. This type can be used to create an array of feature cards that can be rendered dynamically on the home page, allowing for easy updates and maintenance of the content.
 type FeatureCard = {
-  id:string;
+  id: string;
   title: string;
   content: string;
-}
-
+};
 
 // This array contains the data for each feature card that will be displayed on the home page. Each object in the array adheres to the FeatureCard type, providing a unique id, a title that summarizes the feature, and a content description that elaborates on the benefits or functionality of the feature. This structured data can be easily mapped over to render individual feature cards in the UI, making it simple to add, remove, or modify features as needed without changing the underlying component logic.
 const featureCards: FeatureCard[] = [
   {
     id: "training-load-analysis",
     title: "Training Load Analysis",
-    content: "Monitor weekly workload trends and identify sudden spikes before fatigue builds.",
+    content:
+      "Monitor weekly workload trends and identify sudden spikes before fatigue builds.",
   },
   {
     id: "recovery-monitoring",
     title: "Recovery Monitoring",
-    content: "Understand how recovery patterns impact training consistency and readiness.",
+    content:
+      "Understand how recovery patterns impact training consistency and readiness.",
   },
   {
     id: "injury-risk-awareness",
     title: "Injury Risk Awareness",
-    content: "Detect training imbalance early with smarter workload and recovery signals.",
+    content:
+      "Detect training imbalance early with smarter workload and recovery signals.",
   },
   {
     id: "strava-powered-insights",
     title: "Strava-Powered Insights",
-    content: "Sync activity data seamlessly to generate personalized performance analytics.",
+    content:
+      "Sync activity data seamlessly to generate personalized performance analytics.",
   },
 ];
-
-
-
-
 
 // This component takes in three props: eyebrow, heading, and description. The eyebrow is a small piece of text that appears above the main heading, often used to provide context or categorize the section. The heading is the main title of the section, and the description provides additional information about what the section is about. By using this component, we can ensure that all section intros have a consistent look and feel across the application.
 // its purpose is to provide a consistent layout and styling for the introductory text of different sections on the home page, making it easier to maintain a cohesive design throughout the application.
 function SectionIntro({ eyebrow, heading, description }: SectionIntroProps) {
-  return(
+  return (
     <header>
-      <p >{eyebrow}</p>
+      <p>{eyebrow}</p>
 
-      <h2 >{heading}</h2>
+      <h2>{heading}</h2>
 
       <p>{description}</p>
     </header>
-  )
+  );
 }
-
-
-      
 
 export default function HomePage() {
   // State to control the visibility of the AnalysisModal
@@ -119,8 +115,7 @@ export default function HomePage() {
         </div>
       </section>
 
-
-    {/* Dashboard Insights Section */}
+      {/* Dashboard Insights Section */}
       <section className="bg-stone-50 py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -155,12 +150,30 @@ export default function HomePage() {
         </div>
       </section>
 
-    {/* Feature Section */}
-      <section>
-        <div>
-          <article>
+      {/* Feature Section */}
+      <section className="bg-stone-50 py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <SectionIntro
+            eyebrow="Performance Features"
+            heading="Built to help runners train with more clarity."
+            description="FuelWise combines workload tracking, recovery analysis, and activity insights into a calmer, more intelligent training experience for endurance athletes."
+          />
 
-          </article>
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {featureCards.map((feature) => (
+              <article
+                key={feature.id}
+                className="rounded-2xl border border-stone-200/70 bg-white p-7 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-stone-900">
+                  {feature.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-stone-600">
+                  {feature.content}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
