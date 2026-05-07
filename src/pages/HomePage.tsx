@@ -180,44 +180,56 @@ export default function HomePage() {
       </section>
 
       {/* Recovery Intelligence Section */}
-<section className="bg-white py-20 lg:py-28">
-  <div className="mx-auto w-full max-w-7xl px-6">
-    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-      <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.22)]">
-        <img
-          src="/images/StretcedGoalsDataDashBoard.png"
-          alt="FuelWise recovery intelligence dashboard preview"
-          className="h-full w-full rounded-xl object-cover"
-        />
-      </figure>
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.22)]">
+              <img
+                src="/images/StretcedGoalsDataDashBoard.png"
+                alt="FuelWise recovery intelligence dashboard preview"
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </figure>
 
-      <div className="lg:col-span-5">
-        <SectionIntro
-          eyebrow="Recovery Intelligence"
-          heading="Train with better awareness of fatigue and recovery."
-          description="FuelWise helps runners recognize workload imbalance early through recovery analysis, nutrition guidance, and personalized training recommendations."
-        />
+            <div className="lg:col-span-5">
+              <SectionIntro
+                eyebrow="Recovery Intelligence"
+                heading="Train with better awareness of fatigue and recovery."
+                description="FuelWise helps runners recognize workload imbalance early through recovery analysis, nutrition guidance, and personalized training recommendations."
+              />
 
-        <ul className="mt-8 space-y-3 text-sm text-stone-700">
-          <li>Monitor recovery trends alongside training load</li>
-          <li>Receive personalized recovery recommendations</li>
-          <li>Build more sustainable training habits</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+              <ul className="mt-8 space-y-3 text-sm text-stone-700">
+                <li>Monitor recovery trends alongside training load</li>
+                <li>Receive personalized recovery recommendations</li>
+                <li>Build more sustainable training habits</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Final CTA Section */}
+      <section>
+        <div>
+          <p>Train With More Awareness</p>
 
-{/* Final CTA Section */}
-<section>
-  
-</section>
+          <h2>Performance begins with understanding your recovery.</h2>
 
+          <p>
+            FuelWise helps runners build smarter, more sustainable training
+            habits through intelligent recovery, workload analysis, and
+            personalized athlete insights.
+          </p>
 
+          <div>
+            <button type="button" onClick={openModal}>
+              Start Your Analysis
+            </button>
 
-
-
+            <button type="button">Explore the Dashboard</button>
+          </div>
+        </div>
+      </section>
 
       {/* Render modal above all page layers when requested. */}
       {isModalOpen && <AnalysisModal onClose={() => setIsModalOpen(false)} />}
