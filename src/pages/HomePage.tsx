@@ -123,7 +123,7 @@ export default function HomePage() {
       </section>
 
       {/* Dashboard Insights Section */}
-      <section className="bg-stone-50 py-20 lg:py-28">
+      <section className="bg-[#F8F6F1] py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -140,7 +140,7 @@ export default function HomePage() {
               </ul>
             </div>
 
-            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)]">
+            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-[#FCFBF8] p-3 shadow-[0_10px_30px_-18px_rgba(28,25,23,0.12)]">
               <img
                 src="/images/RealisticDataDashBoard.webp"
                 alt="FuelWise dashboard preview"
@@ -152,7 +152,7 @@ export default function HomePage() {
       </section>
 
       {/* Feature Section */}
-      <section className="bg-stone-50 py-20 lg:py-28">
+      <section className="bg-[#FCFBF8] py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="flex flex-col items-center text-center mb-4">
             <SectionIntro
@@ -166,7 +166,7 @@ export default function HomePage() {
             {featureCards.map((feature) => (
               <article
                 key={feature.id}
-                className="rounded-2xl border border-stone-200/70 bg-white p-7 shadow-sm"
+                className="rounded-2xl border border-stone-200/70 bg-[#FCFBF8] p-7 shadow-[0_10px_30px_-18px_rgba(28,25,23,0.12)]"
               >
                 <h3 className="text-xl font-semibold text-stone-900">
                   {feature.title}
@@ -181,10 +181,10 @@ export default function HomePage() {
       </section>
 
       {/* Recovery Intelligence Section */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-[#F8F6F1] py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.22)]">
+            <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-[#FCFBF8] p-3 shadow-[0_10px_30px_-18px_rgba(28,25,23,0.12)]">
               <img
                 src="/images/StretcedGoalsDataDashBoard.webp"
                 alt="FuelWise recovery intelligence dashboard preview"

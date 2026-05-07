@@ -1,4 +1,3 @@
-
 type StatCardProps = {
   title: string;
   value: string | number;
@@ -25,7 +24,9 @@ export default function StatCard({ title, value, subtitle }: StatCardProps) {
       <p className="text-[0.68rem] font-medium uppercase tracking-[0.12em] text-stone-500">
         {title}
       </p>
-      <p className={`mt-4 text-[2rem] font-semibold leading-none tracking-tight ${metricToneClass}`}>
+      <p
+        className={`mt-4 text-[2rem] font-semibold leading-none tracking-tight ${metricToneClass}`}
+      >
         {value}
       </p>
       <p className="mt-3 text-sm text-stone-500">{subtitle}</p>
