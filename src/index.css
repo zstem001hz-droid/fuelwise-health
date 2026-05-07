@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-
-body {
-	font-family: "Plus Jakarta Sans", "Segoe UI", Roboto, Helvetica, Arial,
-		sans-serif;
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+
