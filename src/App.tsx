@@ -4,6 +4,9 @@ import HomePage from "./pages/HomePage";
 import { Routes, Route } from "react-router-dom";
 
 
+function DashboardPage() {
+  return <div>Dashboard Page</div>;
+}
 
 export default function App() {
   return (
