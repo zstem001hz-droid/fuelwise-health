@@ -1,6 +1,18 @@
 import Sidebar from "../components/Dashboard/Sidebar";
 import StatCard from "../components/Dashboard/StatCard";
 
+/**
+ * Dashboard layout shell for FuelWise.
+ *
+ * Data flow today:
+ * - `getDashboardStats()` and `getActivityFeedItems()` return mock data.
+ * - UI renders from those arrays via `.map()`.
+ *
+ * Data flow later:
+ * - Keep UI structure the same.
+ * - Replace the two helper functions with mapped Strava/API response data.
+ */
+
 type DashboardStat = {
   id: string;
   title: string;
@@ -15,7 +27,8 @@ type ActivityFeedItem = {
 };
 
 function getDashboardStats(): DashboardStat[] {
-  // Replace this static array with mapped Strava/API response later.
+  // Current placeholder stats for UI development.
+  // Swap this with mapped backend/API stats once integration is ready.
   return [
     {
       id: "weekly-mileage",
@@ -45,7 +58,8 @@ function getDashboardStats(): DashboardStat[] {
 }
 
 function getActivityFeedItems(): ActivityFeedItem[] {
-  // Replace this static array with mapped Strava/API response later.
+  // Current placeholder feed rows for layout and spacing validation.
+  // Swap this with mapped Strava activities once integration is ready.
   return [
     {
       id: "activity-1",
@@ -71,6 +85,7 @@ function getActivityFeedItems(): ActivityFeedItem[] {
 }
 
 export default function DashboardPage() {
+  // Keep data preparation near the top so rendering remains simple.
   const statsData = getDashboardStats();
   const activityFeedItems = getActivityFeedItems();
 
@@ -90,8 +105,7 @@ export default function DashboardPage() {
           </p>
         </div>
 
-        {/* Stats grid */}
-        {/* Map through the statsData array and render a StatCard for each statistic. The grid layout will adjust based on screen size, showing 1 column on small screens, 2 columns on medium screens, and 4 columns on large screens. */}
+        {/* Quick metrics row (responsive: 1 -> 2 -> 4 columns) */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {statsData.map((stat) => (
             <StatCard
@@ -103,8 +117,9 @@ export default function DashboardPage() {
           ))}
         </div>
 
-        {/* Lower analytics/content area */}
+        {/* Lower dashboard area (40/60 split on large screens) */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          {/* Left panel: reserved for future chart component */}
           <section className="lg:col-span-2 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm min-h-105">
             <div className="mb-5 flex items-center justify-between">
               <h2 className="text-lg font-semibold text-gray-900">
@@ -124,6 +139,7 @@ export default function DashboardPage() {
             </p>
           </section>
 
+          {/* Right panel: reserved for future Strava activity feed */}
           <section className="lg:col-span-3 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm min-h-105">
             <div className="mb-5 flex items-center justify-between">
               <h2 className="text-lg font-semibold text-gray-900">
@@ -135,6 +151,7 @@ export default function DashboardPage() {
             </div>
 
             <div className="flex flex-col gap-3">
+              {/* Each row will map to one activity record from the API later. */}
               {activityFeedItems.map((item) => (
                 <article
                   key={item.id}
