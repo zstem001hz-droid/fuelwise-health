@@ -49,7 +49,7 @@ const featureCards: FeatureCard[] = [
 // its purpose is to provide a consistent layout and styling for the introductory text of different sections on the home page, making it easier to maintain a cohesive design throughout the application.
 function SectionIntro({ eyebrow, heading, description }: SectionIntroProps) {
   return (
-    <header>
+    <header className="text-center lg:text-left">
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
         {eyebrow}
       </p>
@@ -93,14 +93,14 @@ export default function HomePage() {
 
         {/* Hero content */}
         <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-7xl items-center px-6">
-          <div className="max-w-2xl space-y-6 text-white">
-            <h1 className="text-4xl font-semibold leading-tight md:text-6xl">
+          <div className="flex max-w-2xl flex-col items-center space-y-6 text-white md:items-start">
+            <h1 className="text-center text-4xl font-semibold leading-tight md:text-left md:text-6xl">
               Train smarter.
               <br />
               Reduce injury risk.
             </h1>
 
-            <p className="text-base text-gray-200 md:text-lg">
+            <p className="text-center text-base text-gray-200 md:text-left md:text-lg">
               Analyze your training load and recovery to get personalized
               insights and prevent injuries before they happen.
             </p>
@@ -126,6 +126,7 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
+            
               <SectionIntro
                 eyebrow="Performance Insights"
                 heading="Understand your training patterns before fatigue becomes injury."
