@@ -2,6 +2,14 @@ import { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import AnalysisModal from "../components/Modal/AnalysisModal";
 
+// Reusable component for section intros with consistent styling
+//will use this for the section intros to keep design consistent and code dry
+type SectionIntroProps = {
+  eyebrow: string;
+  heading: string;
+  description: string;
+};
+
 export default function HomePage() {
   // State to control the visibility of the AnalysisModal
   const [isModalOpen, setIsModalOpen] = useState(false);
