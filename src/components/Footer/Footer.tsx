@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
 
+// Footer navigation links
+const footerNav = [
+  { label: "Features", to: "/#features" },
+  { label: "Insights", to: "/#insights" },
+  { label: "Recovery", to: "/#recovery" },
+  { label: "Dashboard", to: "/dashboard" },
+];
 
+// Legal links
+const legalNav = [
+  { label: "Privacy Policy", to: "/privacy" },
+  { label: "Terms of Service", to: "/terms" },
+];
 
 export default function Footer() {
   return (
