@@ -108,12 +108,12 @@ export default function HomePage() {
             <div className="flex flex-col gap-4 md:flex-row">
               <button
                 onClick={openModal}
-                className="rounded-md bg-white px-6 py-3 font-medium text-black"
+                className="rounded-lg bg-[#BC6C25] px-6 py-3 font-medium text-stone-100 transition-all duration-300 hover:bg-[#A75F20] hover:-translate-y-px shadow-[0_10px_30px_-12px_rgba(188,108,37,0.45)]"
               >
                 Get Analysis →
               </button>
 
-              <button className="rounded-md border border-white px-6 py-3 text-white">
+              <button className="rounded-lg border border-white/50 bg-white/5 px-6 py-3 font-medium font-inherit text-stone-100 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30">
                 Learn More
               </button>
             </div>
@@ -126,7 +126,6 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
-            
               <SectionIntro
                 eyebrow="Performance Insights"
                 heading="Understand your training patterns before fatigue becomes injury."
@@ -212,9 +211,13 @@ export default function HomePage() {
       {/* Final CTA Section */}
       <section className="bg-[#0c1f12] py-24 lg:py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-300/80">Train With More Awareness</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-300/80">
+            Train With More Awareness
+          </p>
 
-          <h2 className="mt-4 text-3xl font-semibold leading-tight text-stone-100 lg:text-5xl">Performance begins with understanding your recovery.</h2>
+          <h2 className="mt-4 text-3xl font-semibold leading-tight text-stone-100 lg:text-5xl">
+            Performance begins with understanding your recovery.
+          </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-stone-200/85">
             FuelWise helps runners build smarter, more sustainable training
@@ -223,11 +226,20 @@ export default function HomePage() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button type="button" onClick={openModal} className="rounded-lg bg-stone-200 px-7 py-3 font-medium text-stone-900">
+            <button
+              type="button"
+              onClick={openModal}
+              className="rounded-lg bg-[#BC6C25] px-6 py-3 font-medium text-stone-100 transition-all duration-300 hover:bg-[#A75F20] hover:-translate-y-px shadow-[0_10px_30px_-12px_rgba(188,108,37,0.45)]"
+            >
               Start Your Analysis
             </button>
 
-            <button type="button" className="rounded-lg border border-stone-300/50 px-7 py-3 font-medium text-stone-100">Explore the Dashboard</button>
+            <button
+              type="button"
+              className="rounded-lg border border-white/50 bg-white/5 px-6 py-3 font-medium font-inherit text-stone-100 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30"
+            >
+              Explore the Dashboard
+            </button>
           </div>
         </div>
       </section>
