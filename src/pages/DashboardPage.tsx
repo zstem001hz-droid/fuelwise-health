@@ -29,24 +29,20 @@ export default function DashboardPage() {
             value="Low"
             subtitle="based on 7-day load"
           />
+          
         </div>
 
-        {/* Analytics section */}
-        <div className="mb-8">
-          <h2 className="mb-4 text-lg font-semibold text-gray-900">Recent Activity</h2>
-          <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm">
+         {/* Lower analytics/content area */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm min-h-[360px]">
+            <h2 className="mb-4 text-lg font-semibold text-gray-900">Recent Activity</h2>
             <p className="text-sm text-gray-500">Charts and trends coming soon</p>
-          </div>
-        </div>
+          </section>
 
-        {/* Activity section */}
-        <div>
-          <h2 className="mb-4 text-lg font-semibold text-gray-900">
-            Your Activities
-          </h2>
-          <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm">
+          <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm min-h-[360px]">
+            <h2 className="mb-4 text-lg font-semibold text-gray-900">Your Activities</h2>
             <p className="text-sm text-gray-500">Activity feed coming soon</p>
-          </div>
+          </section>
         </div>
       </div>
     </div>
