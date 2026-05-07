@@ -231,7 +231,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* CTA Section */}
       <section className="bg-[#0c1f12] py-24 lg:py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-300/80">
