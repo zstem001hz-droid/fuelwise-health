@@ -142,7 +142,7 @@ export default function HomePage() {
 
             <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.25)]">
               <img
-                src="/images/RealisticDataDashBoard.png"
+                src="/images/RealisticDataDashBoard.webp"
                 alt="FuelWise dashboard preview"
                 className="h-full w-full rounded-xl object-cover"
               />
@@ -186,7 +186,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <figure className="lg:col-span-7 rounded-2xl border border-stone-200/70 bg-white p-3 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.22)]">
               <img
-                src="/images/StretcedGoalsDataDashBoard.png"
+                src="/images/StretcedGoalsDataDashBoard.webp"
                 alt="FuelWise recovery intelligence dashboard preview"
                 className="h-full w-full rounded-xl object-cover"
               />
