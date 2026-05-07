@@ -58,6 +58,8 @@ export default function HomePage() {
         </div>
       </section>
 
+
+    {/* Dashboard Insights Section */}
       <section className="bg-stone-50 py-20 lg:py-28">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -89,6 +91,15 @@ export default function HomePage() {
               />
             </figure>
           </div>
+        </div>
+      </section>
+
+    {/* Feature Section */}
+      <section>
+        <div>
+          <article>
+
+          </article>
         </div>
       </section>
 
