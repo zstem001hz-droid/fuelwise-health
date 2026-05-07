@@ -10,6 +10,13 @@ type SectionIntroProps = {
   description: string;
 };
 
+// This type defines the structure of a feature card, which includes an id, title, and description. The id is a unique identifier for each feature card, while the title and description provide information about the specific feature being highlighted. This type can be used to create an array of feature cards that can be rendered dynamically on the home page, allowing for easy updates and maintenance of the content.
+type FeatureCard = {
+  id:string;
+  title: string;
+  content: string;
+}
+
 // This component takes in three props: eyebrow, heading, and description. The eyebrow is a small piece of text that appears above the main heading, often used to provide context or categorize the section. The heading is the main title of the section, and the description provides additional information about what the section is about. By using this component, we can ensure that all section intros have a consistent look and feel across the application.
 // its purpose is to provide a consistent layout and styling for the introductory text of different sections on the home page, making it easier to maintain a cohesive design throughout the application.
 function SectionIntro({ eyebrow, heading, description }: SectionIntroProps) {
