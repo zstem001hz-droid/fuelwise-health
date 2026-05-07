@@ -17,11 +17,36 @@ export default function DashboardPage() {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
           <p className="mt-1 text-sm text-gray-600">
+             {/* hardcoded data for debugging, will replace*/}
             This week • May 1-7, 2026
           </p>
         </div>
 
         {/* Stats grid */}
+        <div className="">
+            {/* hardcoded data for debugging, will replace with dynamic data from backend later. */}
+          <StatCard
+            title="Weekly Mileage"
+            value="28.4"
+            subtitle="miles"
+          />
+          <StatCard
+            title="Recovery Score"
+            value="7.2"
+            subtitle="out of 10"
+          />
+          <StatCard
+            title="Training Load"
+            value="42"
+            subtitle="ACWR score"
+          />
+          <StatCard
+            title="Injury Risk"
+            value="Low"
+            subtitle="based on 7-day load"
+          />
+        </div>
+
         
       </div>
     </div>
