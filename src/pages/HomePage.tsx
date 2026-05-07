@@ -209,24 +209,24 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section>
-        <div>
-          <p>Train With More Awareness</p>
+      <section className="bg-[#0c1f12] py-24 lg:py-32">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-300/80">Train With More Awareness</p>
 
-          <h2>Performance begins with understanding your recovery.</h2>
+          <h2 className="mt-4 text-3xl font-semibold leading-tight text-stone-100 lg:text-5xl">Performance begins with understanding your recovery.</h2>
 
-          <p>
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-stone-200/85">
             FuelWise helps runners build smarter, more sustainable training
             habits through intelligent recovery, workload analysis, and
             personalized athlete insights.
           </p>
 
-          <div>
-            <button type="button" onClick={openModal}>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <button type="button" onClick={openModal} className="rounded-lg bg-stone-200 px-7 py-3 font-medium text-stone-900">
               Start Your Analysis
             </button>
 
-            <button type="button">Explore the Dashboard</button>
+            <button type="button" className="rounded-lg border border-stone-300/50 px-7 py-3 font-medium text-stone-100">Explore the Dashboard</button>
           </div>
         </div>
       </section>
