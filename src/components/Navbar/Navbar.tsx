@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,32 +30,42 @@ export default function Navbar() {
   ].join(" ");
 
   const brandClassName = [
-    "text-lg font-semibold tracking-[0.02em] transition-colors duration-300 ease-out",
-    isScrolled ? "text-stone-100" : "text-white",
+    "text-[1.02rem] font-semibold tracking-[0.18em] uppercase transition-colors duration-300 ease-out",
+    isScrolled ? "text-stone-100 hover:text-white" : "text-white hover:text-white/90",
   ].join(" ");
 
-  const linkClassName = [
-    "transition-colors duration-300 ease-out",
-    isScrolled
-      ? "text-stone-200 hover:text-white"
-      : "text-white/90 hover:text-white",
-  ].join(" ");
+  const linkClassName = (isActive: boolean) =>
+    [
+      "relative inline-flex items-center py-2 text-[0.72rem] font-medium uppercase tracking-[0.18em] transition-all duration-300 ease-out after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-center after:transition-transform after:duration-300 after:ease-out",
+      isScrolled
+        ? "after:bg-stone-100"
+        : "after:bg-white",
+      isActive
+        ? isScrolled
+          ? "text-white after:scale-x-100"
+          : "text-white after:scale-x-100"
+        : isScrolled
+          ? "text-stone-300 hover:text-white after:scale-x-0 hover:after:scale-x-100"
+          : "text-white/75 hover:text-white after:scale-x-0 hover:after:scale-x-100",
+    ].join(" ");
 
   return (
     <nav className={navClassName}>
       <div className={innerClassName}>
-        <h1 className={brandClassName}>FuelWise</h1>
+        <Link className={brandClassName} to="/">
+          FuelWise
+        </Link>
 
-        <ul className="flex items-center gap-6 text-sm">
+        <ul className="flex items-center gap-8 text-sm">
           <li>
-            <Link className={linkClassName} to="/">
+            <NavLink className={({ isActive }) => linkClassName(isActive)} to="/" end>
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className={linkClassName} to="/dashboard">
+            <NavLink className={({ isActive }) => linkClassName(isActive)} to="/dashboard">
               Dashboard
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
