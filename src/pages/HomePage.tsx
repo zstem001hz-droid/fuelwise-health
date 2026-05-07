@@ -17,6 +17,35 @@ type FeatureCard = {
   content: string;
 }
 
+
+// This array contains the data for each feature card that will be displayed on the home page. Each object in the array adheres to the FeatureCard type, providing a unique id, a title that summarizes the feature, and a content description that elaborates on the benefits or functionality of the feature. This structured data can be easily mapped over to render individual feature cards in the UI, making it simple to add, remove, or modify features as needed without changing the underlying component logic.
+const featureCards: FeatureCard[] = [
+  {
+    id: "training-load-analysis",
+    title: "Training Load Analysis",
+    content: "Monitor weekly workload trends and identify sudden spikes before fatigue builds.",
+  },
+  {
+    id: "recovery-monitoring",
+    title: "Recovery Monitoring",
+    content: "Understand how recovery patterns impact training consistency and readiness.",
+  },
+  {
+    id: "injury-risk-awareness",
+    title: "Injury Risk Awareness",
+    content: "Detect training imbalance early with smarter workload and recovery signals.",
+  },
+  {
+    id: "strava-powered-insights",
+    title: "Strava-Powered Insights",
+    content: "Sync activity data seamlessly to generate personalized performance analytics.",
+  },
+];
+
+
+
+
+
 // This component takes in three props: eyebrow, heading, and description. The eyebrow is a small piece of text that appears above the main heading, often used to provide context or categorize the section. The heading is the main title of the section, and the description provides additional information about what the section is about. By using this component, we can ensure that all section intros have a consistent look and feel across the application.
 // its purpose is to provide a consistent layout and styling for the introductory text of different sections on the home page, making it easier to maintain a cohesive design throughout the application.
 function SectionIntro({ eyebrow, heading, description }: SectionIntroProps) {
