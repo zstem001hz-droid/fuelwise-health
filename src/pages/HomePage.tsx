@@ -133,10 +133,21 @@ export default function HomePage() {
                 description="FuelWise combines Strava activity syncing with workload and recovery analysis so endurance athletes can make clearer, data-informed training decisions."
               />
 
-              <ul className="mt-8 space-y-3 text-sm text-stone-700">
-                <li>Track load progression week over week</li>
-                <li>Catch recovery imbalance early</li>
-                <li>Train with actionable risk signals</li>
+              <ul className="mt-8 space-y-3 text-sm text-stone-700 flex sm:flex-col gap3 items-center md:items-start">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <li>Track load progression week over week</li>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <li>Catch recovery imbalance early</li>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <li>Train with actionable risk signals</li>
+                </div>
               </ul>
             </div>
 
@@ -199,10 +210,21 @@ export default function HomePage() {
                 description="FuelWise helps runners recognize workload imbalance early through recovery analysis, nutrition guidance, and personalized training recommendations."
               />
 
-              <ul className="mt-8 space-y-3 text-sm text-stone-700">
-                <li>Monitor recovery trends alongside training load</li>
-                <li>Receive personalized recovery recommendations</li>
-                <li>Build more sustainable training habits</li>
+              <ul className="mt-8 space-y-3 text-sm text-stone-700 flex sm:flex-col gap3 sm:items-center md:items-start">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <li>Monitor recovery trends alongside training loadk</li>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <li>Receive personalized recovery recommendations</li>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-gray-900">✓</span>
+                  <li>Build more sustainable training habits</li>
+                </div>
               </ul>
             </div>
           </div>
