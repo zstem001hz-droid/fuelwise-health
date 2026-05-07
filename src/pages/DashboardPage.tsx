@@ -1,7 +1,46 @@
 import Sidebar from "../components/Dashboard/Sidebar";
 import StatCard from "../components/Dashboard/StatCard";
 
+type DashboardStat = {
+  id: string;
+  title: string;
+  value: string | number;
+  subtitle: string;
+};
+
+function getDashboardStats(): DashboardStat[] {
+  // Replace this static array with mapped Strava/API response later.
+  return [
+    {
+      id: "weekly-mileage",
+      title: "Weekly Mileage",
+      value: "28.4",
+      subtitle: "miles",
+    },
+    {
+      id: "recovery-score",
+      title: "Recovery Score",
+      value: "7.2",
+      subtitle: "out of 10",
+    },
+    {
+      id: "training-load",
+      title: "Training Load",
+      value: "42",
+      subtitle: "ACWR score",
+    },
+    {
+      id: "injury-risk",
+      title: "Injury Risk",
+      value: "Low",
+      subtitle: "based on 7-day load",
+    },
+  ];
+}
+
 export default function DashboardPage() {
+  const statsData = getDashboardStats();
+
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -19,17 +58,16 @@ export default function DashboardPage() {
         </div>
 
         {/* Stats grid */}
+        {/* Map through the statsData array and render a StatCard for each statistic. The grid layout will adjust based on screen size, showing 1 column on small screens, 2 columns on medium screens, and 4 columns on large screens. */}
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {/* hardcoded data for debugging, will replace with dynamic data from backend later. */}
-          <StatCard title="Weekly Mileage" value="28.4" subtitle="miles" />
-          <StatCard title="Recovery Score" value="7.2" subtitle="out of 10" />
-          <StatCard title="Training Load" value="42" subtitle="ACWR score" />
-          <StatCard
-            title="Injury Risk"
-            value="Low"
-            subtitle="based on 7-day load"
-          />
-          
+          {statsData.map((stat) => (
+            <StatCard
+              key={stat.id}
+              title={stat.title}
+              value={stat.value}
+              subtitle={stat.subtitle}
+            />
+          ))}
         </div>
 
          {/* Lower analytics/content area */}
