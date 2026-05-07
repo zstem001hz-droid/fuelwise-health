@@ -21,6 +21,7 @@ interface AuthState {
 interface AuthContextType extends AuthState {
   login: () => void;
   logout: () => void;
+  completeLogin: (accessToken: string, athlete: Athlete) => void;
 }
 
 // --- Context Creation ---
@@ -52,44 +53,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // --- Handle Strava OAuth Callback ---
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
+  const completeLogin = (accessToken: string, athlete: Athlete) => {
+    localStorage.setItem("strava_access_token", accessToken);
+    localStorage.setItem("strava_athlete", JSON.stringify(athlete));
 
-    if (code) {
-      const exchangeToken = async () => {
-        try {
-          const response = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL}/api/strava/callback?code=${code}`,
-          );
-          const data = await response.json();
-
-          if (data.access_token) {
-            localStorage.setItem("strava_access_token", data.access_token);
-            localStorage.setItem(
-              "strava_athlete",
-              JSON.stringify(data.athlete),
-            );
-
-            setAuthState({
-              accessToken: data.access_token,
-              athlete: data.athlete,
-              isAuthenticated: true,
-              isLoading: false,
-            });
-
-            window.history.replaceState({}, "", "/dashboard");
-          }
-        } catch (error) {
-          console.error("Token exchange failed:", error);
-          setAuthState((prev) => ({ ...prev, isLoading: false }));
-        }
-      };
-
-      exchangeToken();
-    }
-  }, []);
+    setAuthState({
+      accessToken,
+      athlete,
+      isAuthenticated: true,
+      isLoading: false,
+    });
+  };
 
   // --- Login — redirect to Strava ---
   const login = async () => {
@@ -118,7 +92,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ ...authState, login, logout }}>
+    <AuthContext.Provider value={{ ...authState, login, logout, completeLogin }}>
       {children}
     </AuthContext.Provider>
   );
