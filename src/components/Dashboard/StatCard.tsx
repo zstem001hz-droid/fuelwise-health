@@ -1,19 +1,34 @@
 
-/// A card component to display a statistic
 type StatCardProps = {
   title: string;
   value: string | number;
   subtitle: string;
 };
 
-// The StatCard component takes in a title, value, and subtitle as props and renders a styled card with the statistic information. The title is displayed in smaller text at the top, the value is displayed prominently in larger text in the middle, and the subtitle is displayed in smaller text at the bottom.
-//component is reusable and can be used to display various statistics throughout the dashboard, such as weekly training load, recovery score, or injury risk level.
+function getMetricToneClass(title: string): string {
+  if (title.toLowerCase().includes("recovery")) {
+    return "text-[#3F5A45]";
+  }
+
+  if (title.toLowerCase().includes("injury")) {
+    return "text-[#5E4F42]";
+  }
+
+  return "text-stone-900";
+}
+
 export default function StatCard({ title, value, subtitle }: StatCardProps) {
+  const metricToneClass = getMetricToneClass(title);
+
   return (
-    <div className="rounded-lg border border-gray-200/60 bg-white p-7 shadow-sm ">
-      <p className="text-sm font-medium text-gray-600">{title}</p>
-      <p className="mt-3 text-4xl font-bold text-gray-900">{value}</p>
-      <p className="mt-1 text-sm text-gray-500">{subtitle}</p>
-    </div>
+    <article className="rounded-2xl border border-stone-200/70 bg-[#FCFBF8] p-8 shadow-[0_10px_30px_-18px_rgba(28,25,23,0.12)]">
+      <p className="text-[0.68rem] font-medium uppercase tracking-[0.12em] text-stone-500">
+        {title}
+      </p>
+      <p className={`mt-4 text-[2rem] font-semibold leading-none tracking-tight ${metricToneClass}`}>
+        {value}
+      </p>
+      <p className="mt-3 text-sm text-stone-500">{subtitle}</p>
+    </article>
   );
 }
