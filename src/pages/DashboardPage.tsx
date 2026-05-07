@@ -33,13 +33,13 @@ export default function DashboardPage() {
         </div>
 
          {/* Lower analytics/content area */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm min-h-[360px]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          <section className="lg:col-span-2 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm min-h-[360px]">
             <h2 className="mb-4 text-lg font-semibold text-gray-900">Recent Activity</h2>
             <p className="text-sm text-gray-500">Charts and trends coming soon</p>
           </section>
 
-          <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm min-h-[360px]">
+          <section className="lg:col-span-3 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm min-h-[360px]">
             <h2 className="mb-4 text-lg font-semibold text-gray-900">Your Activities</h2>
             <p className="text-sm text-gray-500">Activity feed coming soon</p>
           </section>
