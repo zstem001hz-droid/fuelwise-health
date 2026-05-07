@@ -10,6 +10,19 @@ type SectionIntroProps = {
   description: string;
 };
 
+function SectionIntro({ eyebrow, heading, description }: SectionIntroProps) {
+  return(
+    <header>
+      <p></p>
+      <h2></h2>
+      <p></p>
+    </header>
+  )
+}
+
+
+      
+
 export default function HomePage() {
   // State to control the visibility of the AnalysisModal
   const [isModalOpen, setIsModalOpen] = useState(false);
