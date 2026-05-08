@@ -12,7 +12,15 @@ import {
 
 function DashboardPage() {
   const { athlete, logout, accessToken } = useAuth();
-  const { activities, isLoading, error, reload } = useStrava(accessToken);
+  const {
+    activities,
+    isLoading,
+    error,
+    reload,
+    isUsingMockData,
+    dataSourceLabel,
+    diagnostic,
+  } = useStrava(accessToken);
 
   const weeklySummaries = useMemo(
     () => calculateWeeklyLoad(activities),
@@ -68,7 +76,7 @@ function DashboardPage() {
             Welcome, {athlete?.firstname ?? "Athlete"}.
           </h1>
           <p className="mt-2 text-sm text-stone-600">
-            Data source: HEFIT API activity feed
+            Data source: {dataSourceLabel}
           </p>
         </div>
 
@@ -82,9 +90,22 @@ function DashboardPage() {
       </header>
 
       {isLoading ? <Spinner label="Syncing activity data..." /> : null}
-      {!isLoading && error ? <ErrorMessage message={error} onRetry={reload} /> : null}
+      {!isLoading && error ? (
+        <div className="mb-6">
+          <ErrorMessage
+            title={isUsingMockData ? "Live fetch unavailable" : "Activity sync issue"}
+            tone={isUsingMockData ? "warning" : "error"}
+            message={
+              diagnostic?.endpoint
+                ? `${error} Endpoint: ${diagnostic.endpoint}`
+                : error
+            }
+            onRetry={reload}
+          />
+        </div>
+      ) : null}
 
-      {!isLoading && !error ? (
+      {!isLoading ? (
         <>
           <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
@@ -125,8 +146,19 @@ function DashboardPage() {
             <article className="rounded-2xl border border-stone-200 bg-white p-6 lg:col-span-3">
               <h2 className="text-lg font-semibold text-stone-900">Recent Activities</h2>
               <p className="mt-1 text-sm text-stone-600">
-                Showing the latest synced records from HEFIT.
+                {isUsingMockData
+                  ? "Showing development fallback activities while API debugging continues."
+                  : "Showing the latest synced records from HEFIT."}
               </p>
+
+              {diagnostic ? (
+                <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 px-4 py-3 text-xs text-stone-600">
+                  <p className="font-medium text-stone-800">Fetch diagnostics</p>
+                  <p className="mt-1">Failure type: {diagnostic.kind}</p>
+                  <p className="mt-1">Auth header sent: {diagnostic.usedAuthorizationHeader ? "yes" : "no"}</p>
+                  {diagnostic.status ? <p className="mt-1">HTTP status: {diagnostic.status}</p> : null}
+                </div>
+              ) : null}
 
               {recentActivities.length > 0 ? (
                 <div className="mt-5 space-y-3">
