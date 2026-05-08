@@ -43,26 +43,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // --- Check for existing token on app load ---
   useEffect(() => {
-    const devBypassAuth = import.meta.env.VITE_DEV_BYPASS_AUTH === "true";
-
-    if (devBypassAuth) {
-      setAuthState({
-        accessToken: "dev-bypass-token",
-        athlete: {
-          id: 0,
-          firstname: "Dev",
-          lastname: "User",
-          profile: "",
-          city: "",
-          state: "",
-          country: "",
-        },
-        isAuthenticated: true,
-        isLoading: false,
-      });
-      return;
-    }
-
     const token =
       localStorage.getItem(ACCESS_TOKEN_KEY) ??
       localStorage.getItem(LEGACY_ACCESS_TOKEN_KEY);
