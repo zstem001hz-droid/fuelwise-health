@@ -10,7 +10,7 @@ import {
   generateFuelWiseResult,
 } from "../utils/calculateLoad";
 
-function DashboardPage() {
+export default function DashboardPage() {
   const { athlete, logout, accessToken } = useAuth();
   const {
     activities,
