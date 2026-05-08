@@ -36,8 +36,8 @@ const featureCards: FeatureCard[] = [
       "Detect training imbalance early with smarter workload and recovery signals.",
   },
   {
-    id: "strava-powered-insights",
-    title: "Strava-Powered Insights",
+    id: "connected-activity-insights",
+    title: "Connected Activity Insights",
     content:
       "Sync activity data seamlessly to generate personalized performance analytics.",
   },
@@ -113,7 +113,7 @@ export default function HomePage() {
               <SectionIntro
                 eyebrow="Performance Insights"
                 heading="Understand your training patterns before fatigue becomes injury."
-                description="FuelWise combines Strava activity syncing with workload and recovery analysis so endurance athletes can make clearer, data-informed training decisions."
+                description="FuelWise combines connected activity syncing with workload and recovery analysis so endurance athletes can make clearer, data-informed training decisions."
               />
               <ul className="mt-8 space-y-3 text-sm text-stone-700">
                 <li>Track load progression week over week</li>

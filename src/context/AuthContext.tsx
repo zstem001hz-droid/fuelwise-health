@@ -1,19 +1,19 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 // --- Types ---
-interface Athlete {
+interface AppUser {
   id: number;
-  firstname: string;
-  lastname: string;
-  profile: string;
-  city: string;
-  state: string;
-  country: string;
+  firstname?: string;
+  lastname?: string;
+  profile?: string;
+  city?: string;
+  state?: string;
+  country?: string;
 }
 
 interface AuthState {
   accessToken: string | null;
-  athlete: Athlete | null;
+  athlete: AppUser | null;
   isAuthenticated: boolean;
   isLoading: boolean;
 }
@@ -21,7 +21,13 @@ interface AuthState {
 interface AuthContextType extends AuthState {
   login: () => void;
   logout: () => void;
+  completeLogin: (accessToken: string, athlete: AppUser) => void;
 }
+
+const ACCESS_TOKEN_KEY = "fuelwise_access_token";
+const ATHLETE_KEY = "fuelwise_user";
+const LEGACY_ACCESS_TOKEN_KEY = "strava_access_token";
+const LEGACY_ATHLETE_KEY = "strava_athlete";
 
 // --- Context Creation ---
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -37,8 +43,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // --- Check for existing token on app load ---
   useEffect(() => {
-    const token = localStorage.getItem("strava_access_token");
-    const athlete = localStorage.getItem("strava_athlete");
+    const token =
+      localStorage.getItem(ACCESS_TOKEN_KEY) ??
+      localStorage.getItem(LEGACY_ACCESS_TOKEN_KEY);
+    const athlete =
+      localStorage.getItem(ATHLETE_KEY) ??
+      localStorage.getItem(LEGACY_ATHLETE_KEY);
 
     if (token && athlete) {
       setAuthState({
@@ -52,62 +62,58 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // --- Handle Strava OAuth Callback ---
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
+  const completeLogin = (accessToken: string, athlete: AppUser) => {
+    localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+    localStorage.setItem(ATHLETE_KEY, JSON.stringify(athlete));
 
-    if (code) {
-      const exchangeToken = async () => {
-        try {
-          const response = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL}/api/strava/callback?code=${code}`,
-          );
-          const data = await response.json();
+    // Keep legacy keys during migration so existing code paths keep working.
+    localStorage.setItem(LEGACY_ACCESS_TOKEN_KEY, accessToken);
+    localStorage.setItem(LEGACY_ATHLETE_KEY, JSON.stringify(athlete));
 
-          if (data.access_token) {
-            localStorage.setItem("strava_access_token", data.access_token);
-            localStorage.setItem(
-              "strava_athlete",
-              JSON.stringify(data.athlete),
-            );
+    setAuthState({
+      accessToken,
+      athlete,
+      isAuthenticated: true,
+      isLoading: false,
+    });
+  };
 
-            setAuthState({
-              accessToken: data.access_token,
-              athlete: data.athlete,
-              isAuthenticated: true,
-              isLoading: false,
-            });
-
-            window.history.replaceState({}, "", "/dashboard");
-          }
-        } catch (error) {
-          console.error("Token exchange failed:", error);
-          setAuthState((prev) => ({ ...prev, isLoading: false }));
-        }
-      };
-
-      exchangeToken();
-    }
-  }, []);
-
-  // --- Login — redirect to Strava ---
+  // --- Login — redirect to external provider ---
   const login = async () => {
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
+    const authStartPath = import.meta.env.VITE_AUTH_START_PATH || "/api/auth/connect";
+    const legacyAuthPath = "/api/strava/auth";
+
+    const getAuthUrl = async (path: string) => {
+      const response = await fetch(`${baseUrl}${path}`);
+
+      if (!response.ok) {
+        throw new Error(`Auth start failed with status ${response.status}`);
+      }
+
+      return response.json();
+    };
+
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/strava/auth`,
-      );
-      const data = await response.json();
+      const data = await getAuthUrl(authStartPath);
       window.location.href = data.url;
     } catch (error) {
-      console.error("Failed to get auth URL:", error);
+      try {
+        const fallbackData = await getAuthUrl(legacyAuthPath);
+        window.location.href = fallbackData.url;
+      } catch (fallbackError) {
+        console.error("Failed to get auth URL:", error);
+        console.error("Legacy auth fallback also failed:", fallbackError);
+      }
     }
   };
 
   // ---Logout - Clear token ---
   const logout = () => {
-    localStorage.removeItem("strava_access_token");
-    localStorage.removeItem("strava_athlete");
+    localStorage.removeItem(ACCESS_TOKEN_KEY);
+    localStorage.removeItem(ATHLETE_KEY);
+    localStorage.removeItem(LEGACY_ACCESS_TOKEN_KEY);
+    localStorage.removeItem(LEGACY_ATHLETE_KEY);
     setAuthState({
       accessToken: null,
       athlete: null,
@@ -118,7 +124,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ ...authState, login, logout }}>
+    <AuthContext.Provider value={{ ...authState, login, logout, completeLogin }}>
       {children}
     </AuthContext.Provider>
   );
